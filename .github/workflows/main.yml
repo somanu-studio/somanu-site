@@ -29,7 +29,7 @@ jobs:
       - run: npx @11ty/eleventy
         env:
           # Empty with a custom domain, "/repo-name" on username.github.io
-          ELEVENTY_PATH_PREFIX: ${{ steps.pages.outputs.base_path }}/
+          ELEVENTY_PATH_PREFIX: /
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
