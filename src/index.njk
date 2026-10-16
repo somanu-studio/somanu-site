@@ -1,0 +1,77 @@
+---
+layout: base.njk
+dataKey: home
+bodyClass: home
+permalink: /
+---
+{% from "macros.njk" import pathtitle, arrowlink, intro, split %}
+{% set d = home %}
+
+{# A — Intro #}
+{% call intro(d.hero_image, d.hero_image_alt) %}
+  <h1>{{ d.hero_title | lines | safe }}</h1>
+  <p class="lead">{{ d.hero_text }}</p>
+{% endcall %}
+
+{# C — What I do #}
+<section class="section wrap" aria-labelledby="services-title">
+  <h2 class="section-head" id="services-title">{{ d.services_title }}</h2>
+  <div class="rows">
+    {% for path in support.paths %}
+    <div class="row">
+      <div class="row__title">{{ pathtitle(path.name, path.focus, "h3") }}</div>
+      <div class="row__body flow">
+        <p class="lead">{{ path.subtitle }}</p>
+        <p>{{ path.text }}</p>
+        {{ arrowlink(path.link, path.link_label) }}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+{# B — How I work #}
+{% call split(d.approach_image, d.approach_image_alt, true) %}
+  <h2>{{ d.approach_title | lines | safe }}</h2>
+  <div class="prose">{{ d.approach_text | paras | safe }}</div>
+  {{ arrowlink("/how-i-can-support-you/#work-together", d.approach_link) }}
+{% endcall %}
+
+{# B — About #}
+{% call split(d.about_image, d.about_image_alt, false, "about") %}
+  <h2>{{ d.about_title }}</h2>
+  <div>
+    <h3>{{ d.about_name }}</h3>
+    <p class="small">{{ d.about_positioning }}</p>
+  </div>
+  <div class="prose">{{ d.about_text | paras | safe }}</div>
+{% endcall %}
+
+{# C — Before / Now / Next #}
+<section class="section band band--blush" aria-labelledby="journey-title">
+  <div class="wrap">
+    <h2 class="section-head" id="journey-title">{{ d.journey_title }}</h2>
+    <ol class="journey">
+      {% for step in d.journey %}
+      <li class="journey__step">
+        <h3>{{ step.label }}</h3>
+        <ul>{% for item in step.items %}<li>{{ item }}</li>{% endfor %}</ul>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+{# C — Brands #}
+{% if d.brands and d.brands.length %}
+<section class="section wrap" aria-labelledby="brands-title">
+  <h2 class="section-head" id="brands-title">{{ d.brands_title }}</h2>
+  <ul class="brands">
+    {% for b in d.brands %}
+    <li><span>{{ b.name }}</span>{% if b.region %}<span class="small">{{ b.region }}</span>{% endif %}</li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+{% include "cta.njk" %}

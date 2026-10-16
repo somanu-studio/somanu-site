@@ -1,0 +1,12 @@
+---
+layout: base.njk
+dataKey: home
+bodyClass: notfound
+permalink: /404.html
+---
+{% from "macros.njk" import arrowlink %}
+<section class="section section--intro wrap flow">
+  <h1>This page has moved on.</h1>
+  <p class="lead">The link may be out of date.</p>
+  {{ arrowlink("/", "Back to the home page →") }}
+</section>

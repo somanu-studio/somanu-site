@@ -1,0 +1,74 @@
+seo_title: How I can support you — SOMANÚ
+seo_description: Two ways to work with SOMANÚ — Brands in space and Projects in motion — on a project basis or as ongoing support.
+title: Two ways to bring your ideas to life.
+intro: Not every project needs a full-time team. Sometimes it needs the right person, at the right moment.
+image: /assets/images/manon-beach-stool.jpg
+image_alt: Manon working on her laptop at a beach bar, bare feet resting on the wooden rail
+paths:
+  - number: Path 01
+    name: Brands in space
+    focus: Spatial Design & Design Support
+    subtitle: Bringing brand identity to life through space.
+    for:
+      - Brands
+      - Design studios
+      - Architects
+      - Hospitality projects
+      - Creative teams
+    text: For the moment a brand, a concept or a creative vision needs to become tangible in space — and stay true to itself on the way there.
+    includes:
+      - Translating brand identity into spatial concepts
+      - Spatial storytelling
+      - Customer / guest journey
+      - Concept adaptation
+      - Design support
+      - Client presentations & pitches
+      - Creative coordination
+      - Project coordination
+      - Connecting concept, brand and physical reality
+    statement: Making the invisible logic of a brand visible in space.
+    link: /brands-in-space/
+    link_label: Explore Brands in space
+  - number: Path 02
+    name: Projects in motion
+    focus: Project Management & Brand Experience
+    subtitle: From vision to structured execution.
+    for:
+      - Brands
+      - Hospitality projects
+      - Studios
+      - Events
+      - Creative teams
+    text: For projects where the idea is there, but the planning, the coordination and the day-to-day follow-up need a steady hand.
+    includes:
+      - Project planning
+      - Coordination
+      - Timelines & budgets
+      - Brand activation
+      - Marketing & storytelling
+      - Events & experiences
+      - Openings & launches
+      - On-site coordination
+      - Cross-functional coordination
+      - Team reinforcement
+      - Operational follow-up
+    statement: Turning ideas into structured, coordinated and meaningful experiences.
+    link: /projects-in-motion/
+    link_label: Explore Projects in motion
+work_title: How we can work together
+work_options:
+  - title: Project-based
+    description: For a specific project, a one-off need or short-term support.
+    items:
+      - Hourly / half-day / full-day
+      - Flexible support
+      - No minimum commitment
+  - title: Ongoing
+    description: For ongoing projects, seasonal needs and regular support.
+    items:
+      - 1/2 day per week
+      - 1 day per week
+      - 2 days per week
+      - 3-month minimum
+      - Monthly invoicing
+work_note: The level of support adapts to your needs.

@@ -1,0 +1,63 @@
+{%- set seo = {"home": home, "support": support, "brand_space": brand_space, "project_experience": project_experience, "contact": contact}[dataKey] -%}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{{ seo.seo_title or site.name }}</title>
+  <meta name="description" content="{{ seo.seo_description or site.description }}">
+  <meta property="og:title" content="{{ seo.seo_title or site.name }}">
+  <meta property="og:description" content="{{ seo.seo_description or site.description }}">
+  <meta property="og:type" content="website">
+  {% if site.url %}<meta property="og:image" content="{{ site.url }}{{ home.hero_image }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">{% endif %}
+  <meta name="theme-color" content="#F7F2EE">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/icon-32.png">
+  <link rel="apple-touch-icon" href="/assets/brand/icon-180.png">
+  <link rel="preload" href="/assets/fonts/poppins-bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/raleway-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" defer></script>
+</head>
+<body class="page-{{ bodyClass }}">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="/" aria-label="SOMANÚ — home">
+        <img src="/assets/brand/somanu-logo.png" alt="SOMANÚ" width="720" height="249" eleventy:ignore>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>
+        <span class="menu-toggle__label" data-menu-label>Menu</span>
+        <span class="menu-toggle__icon" aria-hidden="true"></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main" data-menu>
+        <ul>
+          {% for item in nav %}
+          <li><a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+          {% endfor %}
+        </ul>
+        <p class="site-nav__meta">{{ site.contact.location }}<br><a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></p>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap grid site-footer__inner">
+      <div class="site-footer__brand">
+        <img src="/assets/brand/somanu-logo-tagline.png" alt="SOMANÚ — Ideas in motion" width="960" height="371" eleventy:ignore>
+      </div>
+      <p class="site-footer__line">{{ site.footer_line }}</p>
+      <ul class="site-footer__links">
+        <li><a href="{{ site.contact.linkedin }}" rel="noopener" target="_blank">LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+        <li><a href="mailto:{{ site.contact.email }}">Email</a></li>
+      </ul>
+      <p class="site-footer__legal">© {{ "" | year }} SOMANÚ</p>
+    </div>
+  </footer>
+</body>
+</html>

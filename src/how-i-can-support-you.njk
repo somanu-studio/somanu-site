@@ -1,0 +1,53 @@
+---
+layout: base.njk
+dataKey: support
+bodyClass: support
+permalink: /how-i-can-support-you/
+---
+{% from "macros.njk" import pathtitle, arrowlink, intro %}
+
+{% call intro(support.image, support.image_alt) %}
+  <h1>{{ support.title | lines | safe }}</h1>
+  {% if support.intro %}<p class="lead">{{ support.intro }}</p>{% endif %}
+{% endcall %}
+
+{% for path in support.paths %}
+<section class="section{% if loop.index is odd %} band band--blush{% endif %}" aria-labelledby="path-{{ loop.index }}">
+  <div class="wrap">
+    <div class="section-head flow">
+      <p class="small">{{ path.number }}</p>
+      {{ pathtitle(path.name, path.focus, "h2", "path-" + loop.index) }}
+      <p class="lead">{{ path.subtitle }}</p>
+    </div>
+    <div class="grid">
+      <div class="col-left flow">
+        <h3>For</h3>
+        <ul class="plain-list">{% for f in path.for %}<li>{{ f }}</li>{% endfor %}</ul>
+      </div>
+      <div class="col-right flow">
+        <p>{{ path.text }}</p>
+        <h3>What this can include</h3>
+        <ul class="rule-list rule-list--cols">{% for i in path.includes %}<li>{{ i }}</li>{% endfor %}</ul>
+        <p class="quote">{{ path.statement }}</p>
+        {{ arrowlink(path.link, path.link_label) }}
+      </div>
+    </div>
+  </div>
+</section>
+{% endfor %}
+
+<section class="section wrap" id="work-together" aria-labelledby="work-title">
+  <h2 class="section-head" id="work-title">{{ support.work_title }}</h2>
+  <div class="grid">
+    {% for opt in support.work_options %}
+    <div class="{% if loop.first %}col-left{% else %}col-right{% endif %} flow">
+      <h3>{{ opt.title }}</h3>
+      <p class="small">{{ opt.description }}</p>
+      <ul class="rule-list">{% for i in opt.items %}<li>{{ i }}</li>{% endfor %}</ul>
+    </div>
+    {% endfor %}
+  </div>
+  {% if support.work_note %}<p class="note">{{ support.work_note }}</p>{% endif %}
+</section>
+
+{% include "cta.njk" %}

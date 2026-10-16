@@ -1,0 +1,17 @@
+{
+  "name": "somanu-website",
+  "version": "1.0.0",
+  "description": "SOMANÚ website",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "@11ty/eleventy-img": "^6.0.4",
+    "js-yaml": "^5.4.2"
+  },
+  "type": "module",
+  "private": true
+}

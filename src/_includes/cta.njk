@@ -1,0 +1,5 @@
+{% from "macros.njk" import arrowlink %}
+<section class="cta wrap" aria-labelledby="cta-title">
+  <h2 id="cta-title">{{ contact.title }}</h2>
+  {{ arrowlink("/contact/", contact.cta_label) }}
+</section>

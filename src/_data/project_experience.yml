@@ -1,0 +1,53 @@
+seo_title: Projects in motion — SOMANÚ
+seo_description: From vision to structured execution — project management, events & experiences, brand & marketing, openings & launches.
+title: Projects in motion
+subtitle: From vision to structured execution.
+intro: |-
+  Some projects already have the vision.
+  What they need is someone to connect the dots, create structure and keep momentum.
+image: /assets/images/notebook-coffee.jpg
+image_alt: A hand writing in a notebook next to a cappuccino on a wooden table
+gallery:
+  - image: /assets/images/event-silk-dance.jpg
+    alt: A dancer swirling a pink silk veil at an evening event among plants and string lights
+  - image: /assets/images/event-live-band.jpg
+    alt: A live band playing outdoors at night, a singer with a guitar in front
+  - image: /assets/images/event-fire-performance.jpg
+    alt: A fire performer kneeling on the grass at night, holding flaming fans
+  - image: /assets/images/event-dj-set.jpg
+    alt: A DJ seen from behind at the decks, under a wooden structure
+sections:
+  - title: Project management
+    items:
+      - Project planning
+      - Action plans
+      - Budget & timeline follow-up
+      - Coordination
+      - Team alignment
+      - Operational clarity
+  - title: Events & experiences
+    items:
+      - Concept development
+      - Experience design
+      - Production & logistics
+      - Vendor & talent coordination
+      - On-site management
+      - Guest experience
+  - title: Brand & marketing
+    items:
+      - Brand activation
+      - Storytelling
+      - Customer journey
+      - Content coordination
+      - Experience development
+      - Strategic alignment
+  - title: Openings & launches
+    items:
+      - New openings
+      - Seasonal launches
+      - Concept adaptation
+      - New offers
+      - Project peaks
+      - Team reinforcement
+closing: From one-off projects to ongoing support.
+closing_link: See how we can work together →

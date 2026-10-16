@@ -1,0 +1,32 @@
+{# "Brands in space: Spatial Design & Design Support" #}
+{% macro pathtitle(name, focus, tag="h2", id="") %}
+<{{ tag }}{% if id %} id="{{ id }}"{% endif %}>{{ name }}{% if focus %}: {{ focus }}{% endif %}</{{ tag }}>
+{% endmacro %}
+
+{% macro arrowlink(href, label) %}
+<a class="arrow-link" href="{{ href }}"><span>{{ label | arrowless }}</span><span class="arrow-link__arrow" aria-hidden="true">→</span></a>
+{% endmacro %}
+
+{# Pattern A — page intro. Caller provides the text block. #}
+{% macro intro(image, alt, eager=true) %}
+<section class="section section--intro wrap">
+  <div class="grid intro">
+    <div class="intro__text flow">{{ caller() }}</div>
+    <figure class="intro__media media">
+      <img src="{{ image }}" alt="{{ alt }}"{% if eager %} loading="eager" fetchpriority="high"{% endif %} sizes="(min-width: 960px) 40vw, 100vw">
+    </figure>
+  </div>
+</section>
+{% endmacro %}
+
+{# Pattern B — split: image left, H2 + body + link right. #}
+{% macro split(image, alt, band=false, id="") %}
+<section class="section{% if band %} band band--blush{% endif %}"{% if id %} id="{{ id }}"{% endif %}>
+  <div class="wrap grid split">
+    <figure class="split__media media">
+      <img src="{{ image }}" alt="{{ alt }}" sizes="(min-width: 960px) 40vw, 100vw">
+    </figure>
+    <div class="split__text flow">{{ caller() }}</div>
+  </div>
+</section>
+{% endmacro %}

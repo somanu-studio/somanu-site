@@ -1,0 +1,39 @@
+---
+layout: base.njk
+dataKey: brand_space
+bodyClass: brands-in-space
+permalink: /brands-in-space/
+---
+{% from "macros.njk" import intro %}
+{% set d = brand_space %}
+
+{% call intro(d.image, d.image_alt) %}
+  <h1>{{ d.title }}</h1>
+  <p class="lead">{{ d.subtitle }}</p>
+  <p>{{ d.role }}</p>
+{% endcall %}
+
+<section class="section wrap" aria-labelledby="covers-title">
+    <h2 class="section-head" id="covers-title">What this covers</h2>
+    <div class="columns-2">
+      {% for s in d.sections %}
+      <div class="topline flow">
+        <h3>{{ s.title }}</h3>
+        <ul class="plain-list">{% for l in s.lines %}<li>{{ l }}</li>{% endfor %}</ul>
+      </div>
+      {% endfor %}
+    </div>
+</section>
+
+<section class="section wrap statement" aria-label="Principle">
+  <p class="quote">{{ d.principle }}</p>
+</section>
+
+<section class="section band band--blush" aria-labelledby="exp-title">
+  <div class="wrap grid">
+    <h2 class="col-left" id="exp-title">{{ d.experience_title }}</h2>
+    <ul class="col-right rule-list">{% for e in d.experience %}<li>{{ e }}</li>{% endfor %}</ul>
+  </div>
+</section>
+
+{% include "cta.njk" %}

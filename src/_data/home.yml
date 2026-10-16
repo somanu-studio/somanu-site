@@ -1,0 +1,76 @@
+seo_title: SOMANÚ — Ideas in motion
+seo_description: Creative consulting for brands, spaces and experiences, from concept to execution. Manon — Manù, based in Costa Rica, working internationally.
+
+# Hero
+hero_title: From vision to reality.
+hero_text: For brands, spaces and experiences — from concept to execution.
+hero_image: /assets/images/hero-beach-desk.jpg
+hero_image_alt: Manon working on a laptop at a wooden beach bar, the sea behind her
+
+# What SOMANÚ does
+services_title: Creative consulting for projects that need clarity, structure and momentum.
+what_link: Discover how I can support you →
+
+# How it works
+approach_title: |-
+  You can see it.
+  But it needs structure.
+  That’s where SOMANÚ comes in.
+approach_text: |-
+  I step into your world. I listen, observe and understand what already exists inside the project — then help bring clarity, structure and direction to it.
+
+  No fixed formulas, no rigid frameworks: a flexible support and an action plan shaped around your reality.
+approach_image: /assets/images/tattoo-do-it.jpg
+approach_image_alt: Close-up of a wrist with a small “do it.” tattoo, next to an iced tea and a laptop
+approach_link: How we can work together →
+
+# Who
+about_title: From luxury projects to places where life feels real & alive.
+about_image: /assets/images/manon-portrait.jpg
+about_image_alt: Portrait of Manon smiling
+about_name: Manon — Manù
+about_positioning: Luxury • Brand Experience • Project Management
+about_text: |-
+  For more than eight years, I have worked on international projects for luxury brands — across retail, beauty & cosmetics and brand experience.
+
+  Today I bring that experience closer to the places where people connect: hospitality, experiences, lifestyle and spatial projects.
+
+journey_title: High standards × intuitive flow.
+journey:
+- label: Before
+  items:
+  - Luxury Retail
+  - Brand Experience
+  - Luxury Beauty & Cosmetics
+  - International projects
+  - Brand Activation
+  - Storytelling
+  - Customer Experience
+- label: Now
+  items:
+  - Project Management
+  - Experience
+  - Connecting people, spaces & experiences
+  - Concept
+  - Coordination
+  - Execution
+- label: Next
+  items:
+  - Hospitality
+  - Events
+  - Experience
+  - Where projects, people and experiences meet
+brands_title: Brands that trusted me
+brands:
+- name: Chanel Beauté
+  region: Benelux
+- name: LVMH Perfumes & Cosmetics
+  region: Benelux
+- name: Ralph Lauren
+  region: EMEA
+- name: L’Oréal Luxe
+  region: Benelux
+- name: Clarins
+  region: Switzerland
+- name: Coty
+  region: Travel Retail Global

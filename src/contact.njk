@@ -1,0 +1,27 @@
+---
+layout: base.njk
+dataKey: contact
+bodyClass: contact
+permalink: /contact/
+---
+{% from "macros.njk" import arrowlink, intro %}
+{% set c = site.contact %}
+
+{% call intro(contact.image, contact.image_alt) %}
+  <h1>{{ contact.title }}</h1>
+  <p class="lead">{{ contact.text }}</p>
+  <p>{{ contact.prompt }}</p>
+  {{ arrowlink("mailto:" + c.email + "?subject=" + (contact.email_subject | urlencode), contact.cta_label) }}
+{% endcall %}
+
+<section class="section wrap" aria-labelledby="details-title">
+  <h2 class="section-head" id="details-title">{{ c.name }}</h2>
+  <dl class="details">
+    <div><dt class="small">Role</dt><dd>{{ c.role }}</dd></div>
+    <div><dt class="small">Email</dt><dd><a href="mailto:{{ c.email }}">{{ c.email }}</a></dd></div>
+    <div><dt class="small">Phone</dt><dd><a href="tel:{{ c.phone | tel }}">{{ c.phone }}</a></dd></div>
+    <div><dt class="small">LinkedIn</dt><dd><a href="{{ c.linkedin }}" rel="noopener" target="_blank">Manon Goisse<span class="visually-hidden"> (opens in a new tab)</span></a></dd></div>
+    <div><dt class="small">Location</dt><dd>{{ c.location }}<br>{{ c.collaboration }}</dd></div>
+    <div><dt class="small">Availability</dt><dd>{{ c.availability }}</dd></div>
+  </dl>
+</section>

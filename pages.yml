@@ -1,0 +1,248 @@
+# Pages CMS configuration — https://pagescms.org/docs/configuration/
+# Each entry below is one page of the site. Layout, colours and fonts are not
+# editable here on purpose: only text, lists and photos.
+
+media:
+  input: src/assets/images
+  output: /assets/images
+  extensions: [jpg, jpeg, png, webp]
+  rename: safe
+
+settings:
+  content:
+    merge: true
+  commit:
+    identity: user
+
+components:
+  photo:
+    type: image
+    description: Landscape or portrait both work. Phone photos are fine — the site resizes them automatically.
+  alt:
+    type: string
+    label: Photo description
+    description: A short sentence describing the photo, read aloud to visitors who can't see it.
+  seo_title:
+    type: string
+    label: Browser tab title
+  seo_description:
+    type: text
+    label: Search engine description
+    description: One or two sentences shown under the title in Google results.
+
+content:
+  - name: home
+    label: Home (incl. About)
+    type: file
+    path: src/_data/home.yml
+    format: yaml
+    operations: { delete: false }
+    fields:
+      # Hero
+      - { name: hero_title, label: "1 · Hero — main line", type: text }
+      - { name: hero_text, label: "1 · Hero — line under it", type: text }
+      - { name: hero_image, label: "1 · Hero — photo", component: photo }
+      - { name: hero_image_alt, component: alt }
+      # What SOMANÚ does
+      - name: services_title
+        label: "2 · What I do — title"
+        type: text
+        description: The two paths shown below it come from the “How I can support you” page.
+      - { name: what_link, label: "2 · What I do — link text", type: string }
+      # How it works
+      - { name: approach_title, label: "3 · How I work — title", type: text, description: Line breaks are kept. }
+      - { name: approach_text, label: "3 · How I work — text", type: text, description: Leave an empty line between paragraphs. }
+      - { name: approach_image, label: "3 · How I work — photo", component: photo }
+      - { name: approach_image_alt, component: alt }
+      - { name: approach_link, label: "3 · How I work — link text", type: string }
+      # Who
+      - { name: about_title, label: "4 · About — title", type: text }
+      - { name: about_image, label: "4 · About — portrait", component: photo }
+      - { name: about_image_alt, component: alt }
+      - { name: about_name, label: "4 · About — name", type: string }
+      - { name: about_positioning, label: "4 · About — positioning line", type: string }
+      - { name: about_text, label: "4 · About — text", type: text, description: Leave an empty line between paragraphs. }
+      - { name: journey_title, label: "5 · Before / Now / Next — title", type: string }
+      - name: journey
+        label: "5 · Before / Now / Next"
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{label}"
+        fields:
+          - { name: label, label: Title, type: string }
+          - { name: items, label: Lines, type: string, list: true }
+      - { name: brands_title, label: "6 · Brands — title", type: string }
+      - name: brands
+        label: "6 · Brands"
+        description: Remove every brand to hide this section.
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - { name: name, label: Brand, type: string }
+          - { name: region, label: Region, type: string }
+      - { name: seo_title, component: seo_title }
+      - { name: seo_description, component: seo_description }
+
+  - name: support
+    label: How I can support you
+    type: file
+    path: src/_data/support.yml
+    format: yaml
+    operations: { delete: false }
+    fields:
+      - name: title
+        label: Page title
+        type: text
+        description: A line break here is kept on the site.
+      - { name: intro, label: Line under the title, type: text }
+      - { name: image, label: Photo, component: photo }
+      - { name: image_alt, component: alt }
+      - name: paths
+        label: The two paths
+        description: These titles and subtitles also appear on the home page.
+        type: object
+        list:
+          min: 2
+          max: 2
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - { name: number, label: Small label (e.g. Path 01), type: string }
+          - { name: name, label: Name, type: string }
+          - { name: focus, label: Focus (shown after the name), type: string }
+          - { name: subtitle, label: Subtitle, type: string }
+          - { name: for, label: For, type: string, list: true }
+          - { name: text, label: Who it helps, type: text }
+          - { name: includes, label: What this can include, type: string, list: true }
+          - { name: statement, label: Signature line, type: text }
+          - { name: link, label: Page it links to, type: string, readonly: true }
+          - { name: link_label, label: Link text, type: string }
+      - { name: work_title, label: “How we can work together” title, type: string }
+      - name: work_options
+        label: Ways of working
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: description, label: Description, type: text }
+          - { name: items, label: Details, type: string, list: true }
+      - { name: work_note, label: Closing line, type: string }
+      - { name: seo_title, component: seo_title }
+      - { name: seo_description, component: seo_description }
+
+  - name: brand_space
+    label: Brands in space
+    type: file
+    path: src/_data/brand_space.yml
+    format: yaml
+    operations: { delete: false }
+    fields:
+      - { name: title, label: Page title, type: string }
+      - { name: subtitle, label: Subtitle, type: string }
+      - { name: role, label: Introduction, type: text }
+      - { name: image, label: Photo (portrait), component: photo }
+      - { name: image_alt, component: alt }
+      - name: sections
+        label: Sections (Concept, Design support…)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: lines, label: Lines, type: string, list: true }
+      - { name: principle, label: Principle line, type: string }
+      - { name: experience_title, label: Experience title, type: string }
+      - { name: experience, label: Experience, type: string, list: true }
+      - { name: seo_title, component: seo_title }
+      - { name: seo_description, component: seo_description }
+
+  - name: project_experience
+    label: Projects in motion
+    type: file
+    path: src/_data/project_experience.yml
+    format: yaml
+    operations: { delete: false }
+    fields:
+      - { name: title, label: Page title, type: string }
+      - { name: subtitle, label: Subtitle, type: string }
+      - { name: intro, label: Introduction, type: text }
+      - { name: image, label: Photo (portrait), component: photo }
+      - { name: image_alt, component: alt }
+      - name: gallery
+        label: Event photos
+        description: Four photos give the best layout. Remove them all to hide the gallery.
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "Photo {index}"
+        fields:
+          - { name: image, label: Photo, component: photo }
+          - { name: alt, component: alt }
+      - name: sections
+        label: Sections (Project management, Events…)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: items, label: Lines, type: string, list: true }
+      - { name: closing, label: Closing line, type: string }
+      - { name: closing_link, label: Link to “How we can work together”, type: string }
+      - { name: seo_title, component: seo_title }
+      - { name: seo_description, component: seo_description }
+
+  - name: contact
+    label: Contact page
+    type: file
+    path: src/_data/contact.yml
+    format: yaml
+    operations: { delete: false }
+    fields:
+      - { name: title, label: Title, type: string, description: Also used at the bottom of other pages. }
+      - { name: text, label: Line under the title, type: text }
+      - { name: prompt, label: Invitation line, type: text }
+      - { name: cta_label, label: Button text, type: string, description: Also used at the bottom of other pages. }
+      - { name: email_subject, label: Subject of the email that opens, type: string }
+      - { name: image, label: Photo, component: photo }
+      - { name: image_alt, component: alt }
+      - { name: seo_title, component: seo_title }
+      - { name: seo_description, component: seo_description }
+
+  - name: site
+    label: Contact details & footer
+    type: file
+    path: src/_data/site.yml
+    format: yaml
+    operations: { delete: false }
+    fields:
+      - name: contact
+        label: Contact details
+        type: object
+        fields:
+          - { name: name, label: Name, type: string }
+          - { name: role, label: Role, type: string }
+          - { name: email, label: Email, type: string }
+          - { name: phone, label: Phone, type: string }
+          - { name: linkedin, label: LinkedIn address, type: string }
+          - { name: location, label: Location, type: string }
+          - { name: collaboration, label: Collaboration, type: string }
+          - { name: availability, label: Availability, type: string }
+      - { name: footer_line, label: Footer line, type: string }
+      - { name: description, label: Default search engine description, type: text }
+      - { name: name, label: Site name, type: string, hidden: true }
+      - { name: tagline, label: Tagline, type: string, hidden: true }
+      - { name: url, label: Website address, type: string, description: "Once the domain is connected, e.g. https://somanu.com (no slash at the end)." }

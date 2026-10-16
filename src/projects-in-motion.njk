@@ -1,0 +1,47 @@
+---
+layout: base.njk
+dataKey: project_experience
+bodyClass: projects-in-motion
+permalink: /projects-in-motion/
+---
+{% from "macros.njk" import arrowlink, intro %}
+{% set d = project_experience %}
+
+{% call intro(d.image, d.image_alt) %}
+  <h1>{{ d.title }}</h1>
+  <p class="lead">{{ d.subtitle }}</p>
+  <p>{{ d.intro | lines | safe }}</p>
+{% endcall %}
+
+{% if d.gallery and d.gallery.length %}
+<section class="section wrap" aria-label="Moments from events">
+  <div class="gallery gallery--{{ d.gallery.length }}">
+    {% for g in d.gallery %}
+    <figure class="media">
+      <img src="{{ g.image }}" alt="{{ g.alt }}" sizes="(min-width: 960px) 50vw, 100vw">
+    </figure>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<section class="section band band--blush" aria-labelledby="covers-title">
+  <div class="wrap">
+    <h2 class="section-head" id="covers-title">What this covers</h2>
+    <div class="columns-4">
+      {% for s in d.sections %}
+      <div class="topline flow">
+        <h3>{{ s.title }}</h3>
+        <ul class="rule-list">{% for l in s.items %}<li>{{ l }}</li>{% endfor %}</ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section wrap statement" aria-label="Ways of working">
+  <p class="quote">{{ d.closing }}</p>
+  {{ arrowlink("/how-i-can-support-you/#work-together", d.closing_link) }}
+</section>
+
+{% include "cta.njk" %}

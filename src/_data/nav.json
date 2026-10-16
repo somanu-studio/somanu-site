@@ -1,0 +1,7 @@
+[
+  { "label": "About", "url": "/#about" },
+  { "label": "How I can support you", "url": "/how-i-can-support-you/" },
+  { "label": "Brands in space", "url": "/brands-in-space/" },
+  { "label": "Projects in motion", "url": "/projects-in-motion/" },
+  { "label": "Contact", "url": "/contact/" }
+]
